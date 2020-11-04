@@ -1,0 +1,59 @@
+-- 创建数据库
+create database if not exists school character set utf8mb4;
+
+-- 使用数据库
+use school;
+
+-- 创建表
+create table if not exists teacher
+(
+name varchar(32) comment '姓名',
+age int comment '年龄',
+height int comment '身高',
+weight int comment '体重',
+sex varchar(1) comment '性别',
+education varchar(64) comment '学历',
+birthday timestamp comment '生日',
+card_id varchar(18) comment '身份证'
+)
+
+
+
+-- 创建数据库
+create database if not exists cicishop character set utf8mb4;
+
+-- 使用数据库
+use cicishop;
+
+-- 创建表
+-- 商品
+create table if not exists goods
+(
+goods_name varchar(32) comment '商品名称',
+unitprice int comment '商品价格',
+stock int comment '商品库存',
+describe varchar(256) comment '商品描述'
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
