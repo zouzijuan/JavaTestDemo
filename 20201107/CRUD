@@ -1,0 +1,44 @@
+-- 创建数据库
+drop database if exists school;
+create database school;
+
+-- 使用数据库
+use school;
+
+-- 创建考试成绩表
+DROP TABLE IF EXISTS exam_result;
+CREATE TABLE exam_result (
+ id INT,
+ name VARCHAR(20),
+ chinese DECIMAL(3,1),
+ math DECIMAL(3,1),
+ english DECIMAL(3,1)
+);
+-- 插入测试数据
+INSERT INTO exam_result (id,name, chinese, math, english) VALUES
+ (1,'唐三藏', 67, 98, 56),
+ (2,'孙悟空', 87.5, 78, 77),
+ (3,'猪悟能', 88, 98.5, 90),
+ (4,'曹孟德', 82, 84, 67),
+ (5,'刘玄德', 55.5, 85, 45),
+ (6,'孙权', 70, 73, 78.5),
+ (7,'宋公明', 75, 65, 30);
+
+-- 语文成绩倒数1,2名的，
+-- 并且名称包含“悟”或者包含“孟”的同学，
+-- 语文成绩修改+30
+select * from exam_result where name like '%悟%' or name like '%孟%' order by chinese limit 2;
+update exam_result set chinese=chinese+30 where name like '悟' or name like '孟' order by chinese
+limit 2;
+
+-- 修改“Java核心技术”的图书信息，将价格修改为61
+sselect * from book where name = 'Java核心技术';
+update book set price = 61 where name = 'Java核心技术';
+
+-- 删除商品表中，价格大于60，或者是库存小于200的记录
+select * from goods where price > 60 or stock < 200;
+delete from goods where price > 60 or stock < 200;
+
+-- 修改所有库存大于30的商品记录，将价格增加50块
+select * from goods where stock > 30;
+update goods set price = price+50 where stock > 30;
